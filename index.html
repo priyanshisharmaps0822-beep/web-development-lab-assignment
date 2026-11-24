@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Expense Tracker</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <main class="container">
+    <header class="header">
+      <div>
+        <p class="eyebrow">STUDENT LIFE, BUDGETED</p>
+        <h1>My expenses</h1>
+        <p class="subtitle">A simple place to keep an eye on your spending.</p>
+      </div>
+
+    </header>
+
+    <section class="summary" aria-label="Expense summary">
+      <article class="summary-card total">
+        <p>Total expenses</p>
+        <h2 id="total-expenses" aria-live="polite">$0.00</h2>
+      </article>
+    </section>
+
+    <section class="panel add-panel">
+      <h2>Add an expense</h2>
+      <form class="expense-form" id="expense-form">
+        <div class="field">
+          <label for="expense-name">Expense name</label>
+          <input id="expense-name" name="name" type="text" placeholder="Lunch, bus fare..." required maxlength="100">
+        </div>
+
+        <div class="field">
+          <label for="amount">Amount ($)</label>
+          <input id="amount" name="amount" type="number" min="0.01" step="0.01" placeholder="0.00" required>
+        </div>
+
+        <div class="field">
+          <label for="category">Category</label>
+          <select id="category" name="category" required>
+            <option value="Food">Food</option>
+            <option value="Travel">Travel</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Education">Education</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <button type="submit">Add expense</button>
+      </form>
+      <p class="form-message" id="form-message" role="alert"></p>
+    </section>
+
+    <section class="panel expenses-panel">
+      <div class="section-heading">
+        <div>
+          <h2>Expenses</h2>
+          <p>Your purchases will appear here.</p>
+        </div>
+        <div class="filter-field">
+          <label for="category-filter">Filter by category</label>
+          <select id="category-filter">
+            <option value="All">All categories</option>
+            <option value="Food">Food</option>
+            <option value="Travel">Travel</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Education">Education</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="empty-state" id="empty-state">
+        <div class="empty-icon" aria-hidden="true">+</div>
+        <p>No expenses yet</p>
+        <span>Start by adding your first expense above.</span>
+      </div>
+      <ul class="expense-list" id="expense-list" aria-live="polite"></ul>
+    </section>
+
+    <footer>Made for keeping student spending simple.</footer>
+  </main>
+</body>
+</html>
